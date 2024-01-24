@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth"; // Adjust the import path as needed
+import { useAuth } from "../hooks/useAuth";
 
 export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth();
-  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,7 +14,6 @@ export const LoginPage = () => {
     if (username === "user" && password === "password") {
       // Replace with actual authentication logic
       await login({ username });
-      navigate("/protected");
     } else {
       alert("Invalid username or password");
     }
